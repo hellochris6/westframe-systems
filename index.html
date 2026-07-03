@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Westframe Systems: Cloud Solutions for Production Teams</title>
-<meta name="description" content="Media infrastructure consulting for production and post teams: Iconik implementation and metadata workflows, LucidLink and Qumulo storage architecture, and Wasabi-to-Azure or S3 migration pipelines. Free 30-minute workflow review.">
+<title>Westframe Systems: Iconik, LucidLink & Cloud Storage Migration for Production Teams</title>
+<meta name="description" content="Media infrastructure consulting for production and post teams: Iconik implementation and metadata workflows, LucidLink and Qumulo storage architecture, and Wasabi-to-Azure or S3 migration pipelines. Free 20-minute workflow review.">
 <meta name="keywords" content="Iconik migration consultant, Iconik implementation, LucidLink Qumulo S3, Wasabi Azure migration, media asset management consulting, cloud storage migration post production, media workflow automation">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -110,6 +110,11 @@
   .eyebrow::before{
     content:''; width:6px; height:6px; border-radius:50%;
     background:var(--red); box-shadow:0 0 8px var(--red);
+    animation: pulse 2.2s ease-in-out infinite;
+  }
+  @keyframes pulse{
+    0%, 100%{ opacity:1; box-shadow:0 0 8px var(--red); }
+    50%{ opacity:.55; box-shadow:0 0 3px var(--red); }
   }
   h1{
     font-size:42px; font-weight:700; letter-spacing:-0.01em;
@@ -231,6 +236,34 @@
 
   @media (prefers-reduced-motion:no-preference){
     .btn-primary, .nav-cta{transition-duration:.15s;}
+
+    /* hero load-in sequence */
+    .hero .eyebrow, .hero h1, .hero p.lede, .hero .cta-row{
+      opacity:0; transform:translateY(14px);
+      animation:rise .6s ease forwards;
+    }
+    .hero .eyebrow{animation-delay:.05s;}
+    .hero h1{animation-delay:.15s;}
+    .hero p.lede{animation-delay:.28s;}
+    .hero .cta-row{animation-delay:.4s;}
+    @keyframes rise{ to{ opacity:1; transform:translateY(0); } }
+
+    /* scroll reveal */
+    [data-reveal]{
+      opacity:0; transform:translateY(20px);
+      transition:opacity .6s ease, transform .6s ease;
+    }
+    [data-reveal].in-view{opacity:1; transform:translateY(0);}
+
+    /* hover micro-interactions */
+    .service, .shipped-item, .flow-step{transition:transform .2s ease;}
+    .service:hover, .shipped-item:hover{transform:translateX(4px);}
+    .flow-step:hover .flow-tag{color:var(--red); transition:color .2s ease;}
+    .shipped-answer .arrow{display:inline-block; transition:transform .2s ease;}
+    .shipped-item:hover .arrow{transform:translateX(4px);}
+  }
+  @media (prefers-reduced-motion:reduce){
+    [data-reveal]{opacity:1; transform:none;}
   }
 </style>
 </head>
@@ -240,7 +273,7 @@
 <header>
   <div class="wrap nav">
     <div class="brand">WESTFRAME<span class="dot">.</span>SYSTEMS</div>
-    <a class="nav-cta" href="mailto:hello@westframe.systems">Schedule a call →</a>
+    <a class="nav-cta" href="https://calendar.app.google/eJSmvxh5fMsiF2DW8">Schedule a call →</a>
   </div>
 </header>
 
@@ -250,8 +283,8 @@
     <h1>Remote media workflow &amp; infrastructure solutions.</h1>
     <p class="lede">Automated ingest, cloud storage, and media pipeline systems for production teams operating across on-prem and cloud environments, including Iconik implementation, LucidLink &amp; Qumulo architecture, and Wasabi-to-Azure or S3 migration.</p>
     <div class="cta-row">
-      <a class="btn-primary" href="mailto:hello@westframe.systems?subject=Workflow%20review%20request">Request a workflow review</a>
-      <span class="cta-sub">Free 30-minute review of your ingest, storage, editorial, or cloud workflow.</span>
+      <a class="btn-primary" href="https://calendar.app.google/eJSmvxh5fMsiF2DW8">Request a workflow review</a>
+      <span class="cta-sub">Free 20-minute review of your ingest, storage, editorial, or cloud workflow.</span>
     </div>
 
   </section>
@@ -260,7 +293,7 @@
   <section id="services">
     <div class="wrap">
     <div class="section-label">Services</div>
-    <div class="services">
+    <div class="services" data-reveal>
       <div class="service">
         <h3>Production Workflows</h3>
         <p>On-set ingest solutions, workflow automation, editorial delivery, and cloud migration for production and post-production teams.</p>
@@ -280,7 +313,7 @@
   <section id="shipped">
     <div class="wrap">
     <div class="section-label">What We've Shipped</div>
-    <div class="shipped">
+    <div class="shipped" data-reveal>
       <div class="shipped-item">
         <h3>Delivery &amp; Distribution Pipelines</h3>
         <p class="shipped-need">"We need content out of cold storage and delivered to a streaming platform, not just recovered."</p>
@@ -321,7 +354,7 @@
     <div class="wrap">
     <div class="section-label">How we work</div>
     <h2>Every engagement starts with your workflow. Not a template.</h2>
-    <div class="flow" style="margin-top:34px;">
+    <div class="flow" style="margin-top:34px;" data-reveal>
       <div class="flow-step active">
         <div class="flow-tag">01 · DISCOVERY<br>FREE</div>
         <div>
@@ -359,7 +392,7 @@
     <div class="section-label">Why Westframe</div>
     <p>Westframe is a media workflow and production infrastructure studio based in Los Angeles.</p>
     <p>We design systems around the realities of production, post-production, and editorial operations. Whether you need a media ingest pipeline for branded content, a post-production cloud migration, or an ongoing infrastructure partner, Westframe builds reliable workflows that let production teams spend less time managing infrastructure and more time making content.</p>
-    <a class="btn-primary" style="margin-top:8px;" href="mailto:hello@westframe.systems?subject=Workflow%20review%20request">Schedule a call →</a>
+    <a class="btn-primary" style="margin-top:8px;" href="https://calendar.app.google/eJSmvxh5fMsiF2DW8">Schedule a call →</a>
   </section>
 </div>
 
